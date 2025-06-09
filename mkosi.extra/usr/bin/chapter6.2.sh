@@ -1,0 +1,15 @@
+#!/bin/bash
+set -e
+. ~/.bashrc
+cd $LFS/sources
+tar -xf m4-1.4.20.tar.xz
+cd m4-1.4.20
+
+./configure --prefix=/usr   \
+            --host=$LFS_TGT \
+            --build=$(build-aux/config.guess)
+make
+make DESTDIR=$LFS install
+
+cd $LFS/sources
+rm -rf $LFS/sources/m4-1.4.20
