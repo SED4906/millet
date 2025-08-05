@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 cd /sources
-tar -xf util-linux-2.41.tar.xz
-cd util-linux-2.41
+tar -xf util-linux-2.41.1.tar.xz
+cd util-linux-2.41.1
 
 mkdir -pv /var/lib/hwclock
 
@@ -19,10 +19,10 @@ mkdir -pv /var/lib/hwclock
             --disable-liblastlog2 \
             --without-python      \
             ADJTIME_PATH=/var/lib/hwclock/adjtime \
-            --docdir=/usr/share/doc/util-linux-2.41
+            --docdir=/usr/share/doc/util-linux-2.41.1
 
 make
 make install
 
 cd /sources
-rm -rf util-linux-2.41
+rm -rf util-linux-2.41.1

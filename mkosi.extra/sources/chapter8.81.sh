@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 cd /sources
-tar -xf e2fsprogs-1.47.2.tar.gz
-cd e2fsprogs-1.47.2
+tar -xf e2fsprogs-1.47.3.tar.gz
+cd e2fsprogs-1.47.3
 
 mkdir -v build
 cd       build
@@ -28,4 +28,4 @@ install -v -m644 doc/com_err.info /usr/share/info
 install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info
 
 cd /sources
-rm -rf e2fsprogs-1.47.2
+rm -rf e2fsprogs-1.47.3

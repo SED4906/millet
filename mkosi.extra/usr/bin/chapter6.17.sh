@@ -2,8 +2,8 @@
 set -e
 . ~/.bashrc
 cd $LFS/sources
-tar -xf binutils-2.44.tar.xz
-cd binutils-2.44
+tar -xf binutils-2.45.tar.xz
+cd binutils-2.45
 
 sed '6031s/$add_dir//' -i ltmain.sh
 
@@ -27,4 +27,4 @@ make DESTDIR=$LFS install
 rm -v $LFS/usr/lib/lib{bfd,ctf,ctf-nobfd,opcodes,sframe}.{a,la}
 
 cd $LFS/sources
-rm -rf $LFS/sources/binutils-2.44
+rm -rf $LFS/sources/binutils-2.45

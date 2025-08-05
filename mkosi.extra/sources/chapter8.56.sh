@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 cd /sources
-tar -xf ninja-1.12.1.tar.gz
-cd ninja-1.12.1
+tar -xf ninja-1.13.1.tar.gz
+cd ninja-1.13.1
 
 sed -i '/int Guess/a \
   int   j = 0;\
@@ -18,4 +18,4 @@ install -vDm644 misc/bash-completion /usr/share/bash-completion/completions/ninj
 install -vDm644 misc/zsh-completion  /usr/share/zsh/site-functions/_ninja
 
 cd /sources
-rm -rf ninja-1.12.1
+rm -rf ninja-1.13.1

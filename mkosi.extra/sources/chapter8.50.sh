@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 cd /sources
-tar -xf libffi-3.4.8.tar.gz
-cd libffi-3.4.8
+tar -xf libffi-3.5.1.tar.gz
+cd libffi-3.5.1
 
 ./configure --prefix=/usr    \
             --disable-static \
@@ -12,4 +12,4 @@ make
 make install
 
 cd /sources
-rm -rf libffi-3.4.8
+rm -rf libffi-3.5.1

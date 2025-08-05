@@ -2,8 +2,8 @@
 set -e
 . ~/.bashrc
 cd $LFS/sources
-tar -xf binutils-2.44.tar.xz
-cd binutils-2.44
+tar -xf binutils-2.45.tar.xz
+cd binutils-2.45
 
 mkdir -v build
 cd       build
@@ -20,4 +20,4 @@ make
 make install
 
 cd $LFS/sources
-rm -rf $LFS/sources/binutils-2.44
+rm -rf $LFS/sources/binutils-2.45

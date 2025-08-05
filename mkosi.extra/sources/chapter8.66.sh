@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 cd /sources
-tar -xf iproute2-6.14.0.tar.xz
-cd iproute2-6.14.0
+tar -xf iproute2-6.15.0.tar.xz
+cd iproute2-6.15.0
 
 sed -i /ARPD/d Makefile
 rm -fv man/man8/arpd.8
@@ -10,7 +10,7 @@ rm -fv man/man8/arpd.8
 make NETNS_RUN_DIR=/run/netns
 make SBINDIR=/usr/sbin install
 
-install -vDm644 COPYING README* -t /usr/share/doc/iproute2-6.14.0
+install -vDm644 COPYING README* -t /usr/share/doc/iproute2-6.15.0
 
 cd /sources
-rm -rf iproute2-6.14.0
+rm -rf iproute2-6.15.0

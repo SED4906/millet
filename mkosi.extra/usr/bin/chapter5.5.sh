@@ -2,8 +2,8 @@
 set -e
 . ~/.bashrc
 cd $LFS/sources
-tar -xf glibc-2.41.tar.xz
-cd glibc-2.41
+tar -xf glibc-2.42.tar.xz
+cd glibc-2.42
 
 case $(uname -m) in
     i?86)   ln -sfv ld-linux.so.2 $LFS/lib/ld-lsb.so.3
@@ -13,7 +13,7 @@ case $(uname -m) in
     ;;
 esac
 
-patch -Np1 -i ../glibc-2.41-fhs-1.patch
+patch -Np1 -i ../glibc-2.42-fhs-1.patch
 
 mkdir -v build
 cd       build
@@ -44,4 +44,4 @@ grep found dummy.log
 rm -v a.out dummy.log
 
 cd $LFS/sources
-rm -rf glibc-2.41
+rm -rf glibc-2.42

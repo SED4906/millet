@@ -55,7 +55,7 @@ def do_install():
 
 def main():
     print("Welcome to Millet, an Automated Linux From Scratch installer.")
-    print("This installer is based on LFS version r12.3-68-systemd.")
+    print("This installer is based on LFS version r12.3-95-systemd. (Published 2025-08-03)")
     pause()
     version_check()
     pause()

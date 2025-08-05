@@ -1,10 +1,10 @@
 #!/bin/bash
 set -e
 cd /sources
-tar -xf glibc-2.41.tar.xz
-cd glibc-2.41
+tar -xf glibc-2.42.tar.xz
+cd glibc-2.42
 
-patch -Np1 -i ../glibc-2.41-fhs-1.patch
+patch -Np1 -i ../glibc-2.42-fhs-1.patch
 
 mkdir -v build
 cd       build
@@ -115,4 +115,4 @@ EOF
 mkdir -pv /etc/ld.so.conf.d
 
 cd /sources
-rm -rf glibc-2.41
+rm -rf glibc-2.42

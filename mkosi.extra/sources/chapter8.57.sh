@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 cd /sources
-tar -xf meson-1.8.1.tar.gz
-cd meson-1.8.1
+tar -xf meson-1.8.3.tar.gz
+cd meson-1.8.3
 
 pip3 wheel -w dist --no-cache-dir --no-build-isolation --no-deps $PWD
 
@@ -11,4 +11,4 @@ install -vDm644 data/shell-completions/bash/meson /usr/share/bash-completion/com
 install -vDm644 data/shell-completions/zsh/_meson /usr/share/zsh/site-functions/_meson
 
 cd /sources
-rm -rf meson-1.8.1
+rm -rf meson-1.8.3
