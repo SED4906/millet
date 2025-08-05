@@ -94,20 +94,20 @@ cat > /etc/shells << "EOF"
 # End /etc/shells
 EOF
 
-echo r12.3-68-systemd > /etc/lfs-release
+echo r12.3-95-systemd > /etc/lfs-release
 
 cat > /etc/lsb-release << "EOF"
 DISTRIB_ID="Linux From Scratch"
-DISTRIB_RELEASE="r12.3-68-systemd"
+DISTRIB_RELEASE="r12.3-95-systemd"
 DISTRIB_CODENAME="Millet"
 DISTRIB_DESCRIPTION="Linux From Scratch"
 EOF
 
 cat > /etc/os-release << "EOF"
 NAME="Linux From Scratch"
-VERSION="r12.3-68-systemd"
+VERSION="r12.3-95-systemd"
 ID=lfs
-PRETTY_NAME="Linux From Scratch r12.3-68-systemd"
+PRETTY_NAME="Linux From Scratch r12.3-95-systemd"
 VERSION_CODENAME="Millet"
 HOME_URL="https://www.linuxfromscratch.org/lfs/"
 RELEASE_TYPE="development"
