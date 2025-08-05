@@ -4,6 +4,8 @@ cd /sources
 tar -xf gcc-15.1.0.tar.xz
 cd gcc-15.1.0
 
+sed -i '/struct_termio_sz/d' libsanitizer/sanitizer_common/*
+
 case $(uname -m) in
   x86_64)
     sed -e '/m64=/s/lib64/lib/' \
