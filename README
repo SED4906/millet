@@ -1,0 +1,12 @@
+Notes for anyone else trying this out:
+
+When you get to the Kernel Configuration step, menuconfig won't work properly.
+The workaround is to switch to a different TTY, log in as root (name=password)
+and run the following command to enter the chroot:
+
+LFS=/mnt/lfs chapter10.sh
+
+When you are done, switch back to TTY 7.
+
+
+ALFS (Automated Linux From Scratch) -> alfalfa (reduplication) -> millet (grain often fed to non-humans)
