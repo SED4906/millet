@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 cd /sources
-tar -xf gcc-15.1.0.tar.xz
-cd gcc-15.1.0
+tar -xf gcc-15.2.0.tar.xz
+cd gcc-15.2.0
 
 sed -i '/struct_termio_sz/d' libsanitizer/sanitizer_common/*
 
@@ -32,7 +32,7 @@ make install
 
 ln -svr /usr/bin/cpp /usr/lib
 ln -sv gcc.1 /usr/share/man/man1/cc.1
-ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/15.1.0/liblto_plugin.so \
+ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/15.2.0/liblto_plugin.so \
         /usr/lib/bfd-plugins/
 
 echo 'int main(){}' | cc -x c - -v -Wl,--verbose &> dummy.log
@@ -48,4 +48,4 @@ mkdir -pv /usr/share/gdb/auto-load/usr/lib
 mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib
 
 cd /sources
-rm -rf gcc-15.1.0
+rm -rf gcc-15.2.0

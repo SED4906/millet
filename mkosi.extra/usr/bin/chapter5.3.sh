@@ -2,8 +2,8 @@
 set -e
 . ~/.bashrc
 cd $LFS/sources
-tar -xf gcc-15.1.0.tar.xz
-cd gcc-15.1.0
+tar -xf gcc-15.2.0.tar.xz
+cd gcc-15.2.0
 
 tar -xf ../mpfr-4.2.2.tar.xz
 mv -v mpfr-4.2.2 mpfr
@@ -51,4 +51,4 @@ cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
   `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/include/limits.h
 
 cd $LFS/sources
-rm -rf gcc-15.1.0
+rm -rf gcc-15.2.0
