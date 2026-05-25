@@ -4,7 +4,7 @@
 # If you have tools installed in other directories, adjust PATH here AND
 # in ~lfs/.bashrc (section 4.4) as well.
 
-LC_ALL=C 
+LC_ALL=C
 PATH=/usr/bin:/bin
 
 bail() { echo "FATAL: $1"; exit 1; }
@@ -15,16 +15,16 @@ sort   /dev/null || bail "sort does not work"
 ver_check()
 {
    if ! type -p $2 &>/dev/null
-   then 
-     echo "ERROR: Cannot find $2 ($1)"; return 1; 
+   then
+     echo "ERROR: Cannot find $2 ($1)"; return 1;
    fi
    v=$($2 --version 2>&1 | grep -E -o '[0-9]+\.[0-9\.]+[a-z]*' | head -n1)
    if printf '%s\n' $3 $v | sort --version-sort --check &>/dev/null
-   then 
+   then
      printf "OK:    %-9s %-6s >= $3\n" "$1" "$v"; return 0;
-   else 
-     printf "ERROR: %-9s is TOO OLD ($3 or later required)\n" "$1"; 
-     return 1; 
+   else
+     printf "ERROR: %-9s is TOO OLD ($3 or later required)\n" "$1";
+     return 1;
    fi
 }
 
@@ -32,11 +32,11 @@ ver_kernel()
 {
    kver=$(uname -r | grep -E -o '^[0-9\.]+')
    if printf '%s\n' $1 $kver | sort --version-sort --check &>/dev/null
-   then 
+   then
      printf "OK:    Linux Kernel $kver >= $1\n"; return 0;
-   else 
-     printf "ERROR: Linux Kernel ($kver) is TOO OLD ($1 or later required)\n" "$kver"; 
-     return 1; 
+   else
+     printf "ERROR: Linux Kernel ($kver) is TOO OLD ($1 or later required)\n" "$kver";
+     return 1;
    fi
 }
 
@@ -48,8 +48,8 @@ ver_check Bison          bison    2.7
 ver_check Diffutils      diff     2.8.1
 ver_check Findutils      find     4.2.31
 ver_check Gawk           gawk     4.0.1
-ver_check GCC            gcc      5.2
-ver_check "GCC (C++)"    g++      5.2
+ver_check GCC            gcc      5.4
+ver_check "GCC (C++)"    g++      5.4
 ver_check Grep           grep     2.5.1a
 ver_check Gzip           gzip     1.3.12
 ver_check M4             m4       1.4.10
@@ -61,7 +61,7 @@ ver_check Sed            sed      4.1.5
 ver_check Tar            tar      1.22
 ver_check Texinfo        texi2any 5.0
 ver_check Xz             xz       5.0.0
-ver_kernel 5.4 
+ver_kernel 5.10
 
 if mount | grep -q 'devpts on /dev/pts' && [ -e /dev/ptmx ]
 then echo "OK:    Linux Kernel supports UNIX 98 PTY";

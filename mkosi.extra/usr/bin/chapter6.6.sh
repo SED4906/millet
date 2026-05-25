@@ -7,7 +7,7 @@ cd diffutils-3.12
 
 ./configure --prefix=/usr   \
             --host=$LFS_TGT \
-            gl_cv_func_strcasecmp_works=y \
+            gl_cv_func_strcasecmp_works=yes \
             --build=$(./build-aux/config.guess)
 
 make

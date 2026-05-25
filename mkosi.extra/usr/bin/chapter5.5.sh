@@ -2,8 +2,8 @@
 set -e
 . ~/.bashrc
 cd $LFS/sources
-tar -xf glibc-2.42.tar.xz
-cd glibc-2.42
+tar -xf glibc-2.43.tar.xz
+cd glibc-2.43
 
 case $(uname -m) in
     i?86)   ln -sfv ld-linux.so.2 $LFS/lib/ld-lsb.so.3
@@ -13,7 +13,9 @@ case $(uname -m) in
     ;;
 esac
 
-patch -Np1 -i ../glibc-2.42-fhs-1.patch
+patch -Np1 -i ../glibc-fhs-1.patch
+
+patch -Np1 -i ../glibc-2.43-upstream_fixes-1.patch
 
 mkdir -v build
 cd       build
@@ -26,7 +28,7 @@ echo "rootsbindir=/usr/sbin" > configparms
       --build=$(../scripts/config.guess) \
       --disable-nscd                     \
       libc_cv_slibdir=/usr/lib           \
-      --enable-kernel=5.4
+      --enable-kernel=5.10
 
 make
 make DESTDIR=$LFS install
@@ -44,4 +46,4 @@ grep found dummy.log
 rm -v a.out dummy.log
 
 cd $LFS/sources
-rm -rf glibc-2.42
+rm -rf glibc-2.43

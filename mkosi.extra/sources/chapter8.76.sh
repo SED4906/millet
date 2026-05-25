@@ -1,8 +1,10 @@
 #!/bin/bash
 set -e
 cd /sources
-tar -xf systemd-257.6.tar.gz
-cd systemd-257.6
+tar -xf systemd-260.1.tar.gz
+cd systemd-260.1
+
+patch -Np1 -i ../systemd-260.1-buildfix-1.patch
 
 sed -e 's/GROUP="render"/GROUP="video"/' \
     -e 's/GROUP="sgx", //'               \
@@ -29,13 +31,13 @@ meson setup ..                \
       -D nobody-group=nogroup \
       -D sysupdate=disabled   \
       -D ukify=disabled       \
-      -D docdir=/usr/share/doc/systemd-257.6
+      -D docdir=/usr/share/doc/systemd-260.1
 
 ninja
 echo 'NAME="Linux From Scratch"' > /etc/os-release
 ninja install
 
-tar -xf ../../systemd-man-pages-257.6.tar.xz \
+tar -xf ../../systemd-man-pages-260.1.tar.xz \
     --no-same-owner --strip-components=1     \
     -C /usr/share/man
 
@@ -43,4 +45,4 @@ systemd-machine-id-setup
 systemctl preset-all
 
 cd /sources
-rm -rf systemd-257.6
+rm -rf systemd-260.1

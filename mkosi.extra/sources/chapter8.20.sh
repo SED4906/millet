@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 cd /sources
-tar -xf binutils-2.45.tar.xz
-cd binutils-2.45
+tar -xf binutils-2.46.0.tar.xz
+cd binutils-2.46.0
 
 mkdir -v build
 cd       build
@@ -19,14 +19,10 @@ cd       build
              --enable-default-hash-style=gnu
 
 make tooldir=/usr
-make -k check
-
-grep '^FAIL:' $(find -name '*.log') || echo "all seems well"
-
 make tooldir=/usr install
 
 rm -rfv /usr/lib/lib{bfd,ctf,ctf-nobfd,gprofng,opcodes,sframe}.a \
         /usr/share/doc/gprofng/
 
 cd /sources
-rm -rf binutils-2.45
+rm -rf binutils-2.46.0

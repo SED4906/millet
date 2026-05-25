@@ -1,13 +1,13 @@
 #!/bin/bash
 set -e
 cd /sources
-tar -xf groff-1.23.0.tar.gz
-cd groff-1.23.0
+tar -xf groff-1.24.1.tar.gz
+cd groff-1.24.1
 
 PAGE=letter ./configure --prefix=/usr
 
-make
+make -j1
 make install
 
 cd /sources
-rm -rf groff-1.23.0
+rm -rf groff-1.24.1

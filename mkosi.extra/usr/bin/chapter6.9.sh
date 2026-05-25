@@ -2,8 +2,8 @@
 set -e
 . ~/.bashrc
 cd $LFS/sources
-tar -xf gawk-5.3.2.tar.xz
-cd gawk-5.3.2
+tar -xf gawk-5.4.0.tar.xz
+cd gawk-5.4.0
 
 sed -i 's/extras//' Makefile.in
 
@@ -15,4 +15,4 @@ make
 make DESTDIR=$LFS install
 
 cd $LFS/sources
-rm -rf $LFS/sources/gawk-5.3.2
+rm -rf $LFS/sources/gawk-5.4.0

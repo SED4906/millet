@@ -2,15 +2,15 @@
 set -e
 . ~/.bashrc
 cd $LFS/sources
-tar -xf gcc-15.2.0.tar.xz
-cd gcc-15.2.0
+tar -xf gcc-16.1.0.tar.xz
+cd gcc-16.1.0
 
 tar -xf ../mpfr-4.2.2.tar.xz
 mv -v mpfr-4.2.2 mpfr
 tar -xf ../gmp-6.3.0.tar.xz
 mv -v gmp-6.3.0 gmp
-tar -xf ../mpc-1.3.1.tar.gz
-mv -v mpc-1.3.1 mpc
+tar -xf ../mpc-1.4.1.tar.xz
+mv -v mpc-1.4.1 mpc
 
 case $(uname -m) in
   x86_64)
@@ -49,4 +49,4 @@ make DESTDIR=$LFS install
 ln -sv gcc $LFS/usr/bin/cc
 
 cd $LFS/sources
-rm -rf $LFS/sources/gcc-15.2.0
+rm -rf $LFS/sources/gcc-16.1.0

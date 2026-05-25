@@ -10,6 +10,7 @@ set -e
 /sources/chapter8.10.sh
 /sources/chapter8.11.sh
 /sources/chapter8.12.sh
+/sources/chapter8.13a.sh
 /sources/chapter8.13.sh
 /sources/chapter8.14.sh
 /sources/chapter8.15.sh
@@ -41,13 +42,12 @@ set -e
 /sources/chapter8.41.sh
 /sources/chapter8.42.sh
 /sources/chapter8.43.sh
-/sources/chapter8.44.sh
-/sources/chapter8.45.sh
 /sources/chapter8.46.sh
 /sources/chapter8.47.sh
 /sources/chapter8.48.sh
 /sources/chapter8.49.sh
 /sources/chapter8.50.sh
+/sources/chapter8.50a.sh
 /sources/chapter8.51.sh
 /sources/chapter8.52.sh
 /sources/chapter8.53.sh
@@ -85,4 +85,3 @@ until passwd root
 do
   echo "Try again"
 done
-

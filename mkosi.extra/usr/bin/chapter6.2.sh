@@ -2,8 +2,8 @@
 set -e
 . ~/.bashrc
 cd $LFS/sources
-tar -xf m4-1.4.20.tar.xz
-cd m4-1.4.20
+tar -xf m4-1.4.21.tar.xz
+cd m4-1.4.21
 
 ./configure --prefix=/usr   \
             --host=$LFS_TGT \
@@ -12,4 +12,4 @@ make
 make DESTDIR=$LFS install
 
 cd $LFS/sources
-rm -rf $LFS/sources/m4-1.4.20
+rm -rf $LFS/sources/m4-1.4.21

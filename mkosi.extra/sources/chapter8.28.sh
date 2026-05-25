@@ -1,11 +1,9 @@
 #!/bin/bash
 set -e
 cd /sources
-tar -xf shadow-4.18.0.tar.xz
-cd shadow-4.18.0
+tar -xf shadow-4.19.4.tar.xz
+cd shadow-4.19.4
 
-sed -i 's/groups$(EXEEXT) //' src/Makefile.in
-find man -name Makefile.in -exec sed -i 's/groups\.1 / /'   {} \;
 find man -name Makefile.in -exec sed -i 's/getspnam\.3 / /' {} \;
 find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;
 
@@ -19,6 +17,7 @@ touch /usr/bin/passwd
             --disable-static    \
             --with-{b,yes}crypt \
             --without-libbsd    \
+            --disable-logind    \
             --with-group-name-max-length=32
 
 make
@@ -34,4 +33,4 @@ useradd -D --gid 999
 sed -i '/MAIL/s/yes/no/' /etc/default/useradd
 
 cd /sources
-rm -rf shadow-4.18.0
+rm -rf shadow-4.19.4

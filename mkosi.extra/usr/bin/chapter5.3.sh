@@ -2,15 +2,15 @@
 set -e
 . ~/.bashrc
 cd $LFS/sources
-tar -xf gcc-15.2.0.tar.xz
-cd gcc-15.2.0
+tar -xf gcc-16.1.0.tar.xz
+cd gcc-16.1.0
 
 tar -xf ../mpfr-4.2.2.tar.xz
 mv -v mpfr-4.2.2 mpfr
 tar -xf ../gmp-6.3.0.tar.xz
 mv -v gmp-6.3.0 gmp
-tar -xf ../mpc-1.3.1.tar.gz
-mv -v mpc-1.3.1 mpc
+tar -xf ../mpc-1.4.1.tar.xz
+mv -v mpc-1.4.1 mpc
 
 case $(uname -m) in
   x86_64)
@@ -25,7 +25,7 @@ cd       build
 ../configure                  \
     --target=$LFS_TGT         \
     --prefix=$LFS/tools       \
-    --with-glibc-version=2.41 \
+    --with-glibc-version=2.43 \
     --with-sysroot=$LFS       \
     --with-newlib             \
     --without-headers         \
@@ -51,4 +51,4 @@ cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
   `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/include/limits.h
 
 cd $LFS/sources
-rm -rf gcc-15.2.0
+rm -rf gcc-16.1.0

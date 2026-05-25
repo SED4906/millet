@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 cd /sources
-tar -xf inetutils-2.6.tar.xz
-cd inetutils-2.6
+tar -xf inetutils-2.8.tar.gz
+cd inetutils-2.8
 
 sed -i 's/def HAVE_TERMCAP_TGETENT/ 1/' telnet/telnet.c
 ./configure --prefix=/usr        \
@@ -22,4 +22,4 @@ make install
 #mv -v /usr/{,s}bin/ifconfig
 
 cd /sources
-rm -rf inetutils-2.6
+rm -rf inetutils-2.8

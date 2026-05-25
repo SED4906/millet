@@ -2,14 +2,15 @@
 set -e
 . ~/.bashrc
 cd $LFS/sources
-tar -xf ncurses-6.5-20250531.tgz
-cd ncurses-6.5-20250531
+tar -xf ncurses-6.6.tar.gz
+cd ncurses-6.6
 
 mkdir build
 pushd build
-  ../configure AWK=gawk
+  ../configure --prefix=$LFS/tools AWK=gawk
   make -C include
   make -C progs tic
+  install progs/tic $LFS/tools/bin
 popd
 
 ./configure --prefix=/usr                \
@@ -26,10 +27,10 @@ popd
             AWK=gawk
 
 make
-make DESTDIR=$LFS TIC_PATH=$(pwd)/build/progs/tic install
+make DESTDIR=$LFS install
 ln -sv libncursesw.so $LFS/usr/lib/libncurses.so
 sed -e 's/^#if.*XOPEN.*$/#if 1/' \
     -i $LFS/usr/include/curses.h
 
 cd $LFS/sources
-rm -rf $LFS/sources/ncurses-6.5-20250531
+rm -rf $LFS/sources/ncurses-6.6

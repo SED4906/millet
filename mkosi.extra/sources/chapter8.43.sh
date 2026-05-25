@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 cd /sources
-tar -xf perl-5.42.0.tar.xz
-cd perl-5.42.0
+tar -xf perl-5.42.2.tar.xz
+cd perl-5.42.2
 
 export BUILD_ZLIB=False
 export BUILD_BZIP2=0
@@ -27,4 +27,4 @@ make install
 unset BUILD_ZLIB BUILD_BZIP2
 
 cd /sources
-rm -rf perl-5.42.0
+rm -rf perl-5.42.2

@@ -1,17 +1,17 @@
 #!/bin/bash
 set -e
 cd /sources
-tar -xf expat-2.7.1.tar.xz
-cd expat-2.7.1
+tar -xf expat-2.8.1.tar.xz
+cd expat-2.8.1
 
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/expat-2.7.1
+            --docdir=/usr/share/doc/expat-2.8.1
 
 make
 make install
 
-install -v -m644 doc/*.{html,css} /usr/share/doc/expat-2.7.1
+install -v -m644 doc/*.{html,css} /usr/share/doc/expat-2.8.1
 
 cd /sources
-rm -rf expat-2.7.1
+rm -rf expat-2.8.1

@@ -1,4 +1,11 @@
-Notes for anyone else trying this out:
+On a really good CPU this takes about an hour. Your mileage may vary.
+
+
+Run the following command to download all the source code and build install media:
+
+wget --input-file=sources/wget-list-systemd --continue --directory-prefix=sources && mkosi
+
+This is most likely to work on Arch Linux, because the install media is built from Arch packages.
 
 When you get to the Kernel Configuration step, menuconfig won't work properly.
 The workaround is to switch to a different TTY, log in as root (name=password)

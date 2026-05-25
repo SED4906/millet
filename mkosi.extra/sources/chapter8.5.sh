@@ -1,10 +1,12 @@
 #!/bin/bash
 set -e
 cd /sources
-tar -xf glibc-2.42.tar.xz
-cd glibc-2.42
+tar -xf glibc-2.43.tar.xz
+cd glibc-2.43
 
-patch -Np1 -i ../glibc-2.42-fhs-1.patch
+patch -Np1 -i ../glibc-fhs-1.patch
+
+patch -Np1 -i ../glibc-2.43-upstream_fixes-1.patch
 
 mkdir -v build
 cd       build
@@ -81,7 +83,7 @@ rpc: files
 # End /etc/nsswitch.conf
 EOF
 
-tar -xf ../../tzdata2025b.tar.gz
+tar -xf ../../tzdata2026b.tar.gz
 
 ZONEINFO=/usr/share/zoneinfo
 mkdir -pv $ZONEINFO/{posix,right}
@@ -115,4 +117,4 @@ EOF
 mkdir -pv /etc/ld.so.conf.d
 
 cd /sources
-rm -rf glibc-2.42
+rm -rf glibc-2.43

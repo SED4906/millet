@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 cd /sources
-tar -xf ncurses-6.5-20250531.tgz
-cd ncurses-6.5-20250531
+tar -xf ncurses-6.6.tar.gz
+cd ncurses-6.6
 
 ./configure --prefix=/usr           \
             --mandir=/usr/share/man \
@@ -15,11 +15,9 @@ cd ncurses-6.5-20250531
 
 make
 make DESTDIR=$PWD/dest install
-install -vm755 dest/usr/lib/libncursesw.so.6.5 /usr/lib
-rm -v  dest/usr/lib/libncursesw.so.6.5
 sed -e 's/^#if.*XOPEN.*$/#if 1/' \
     -i dest/usr/include/curses.h
-cp -av dest/* /
+cp --remove-destination -av dest/* /
 
 for lib in ncurses form panel menu ; do
     ln -sfv lib${lib}w.so /usr/lib/lib${lib}.so
@@ -28,7 +26,7 @@ done
 
 ln -sfv libncursesw.so /usr/lib/libcurses.so
 
-cp -v -R doc -T /usr/share/doc/ncurses-6.5-20250531
+cp -v -R doc -T /usr/share/doc/ncurses-6.6
 
 cd /sources
-rm -rf ncurses-6.5-20250531
+rm -rf ncurses-6.6

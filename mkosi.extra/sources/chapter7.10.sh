@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 cd /sources
-tar -xf Python-3.13.6.tar.xz
-cd Python-3.13.6
+tar -xf Python-3.14.5.tar.xz
+cd Python-3.14.5
 
 ./configure --prefix=/usr       \
             --enable-shared     \
@@ -13,4 +13,4 @@ make
 make install
 
 cd /sources
-rm -rf Python-3.13.6
+rm -rf Python-3.14.5

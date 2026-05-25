@@ -2,8 +2,8 @@
 set -e
 . ~/.bashrc
 cd $LFS/sources
-tar -xf coreutils-9.7.tar.xz
-cd coreutils-9.7
+tar -xf coreutils-9.11.tar.xz
+cd coreutils-9.11
 
 ./configure --prefix=/usr                     \
             --host=$LFS_TGT                   \
@@ -19,4 +19,4 @@ mv -v $LFS/usr/share/man/man1/chroot.1 $LFS/usr/share/man/man8/chroot.8
 sed -i 's/"1"/"8"/'                    $LFS/usr/share/man/man8/chroot.8
 
 cd $LFS/sources
-rm -rf $LFS/sources/coreutils-9.7
+rm -rf $LFS/sources/coreutils-9.11

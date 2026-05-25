@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 cd /sources
-tar -xf perl-5.42.0.tar.xz
-cd perl-5.42.0
+tar -xf perl-5.42.2.tar.xz
+cd perl-5.42.2
 
 sh Configure -des                                         \
              -D prefix=/usr                               \
@@ -19,4 +19,4 @@ make
 make install
 
 cd /sources
-rm -rf perl-5.42.0
+rm -rf perl-5.42.2
