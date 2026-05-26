@@ -61,7 +61,6 @@ set -e
 /sources/chapter8.61.sh
 /sources/chapter8.62.sh
 /sources/chapter8.63.sh
-#/sources/chapter8.64.sh
 /sources/chapter8.65.sh
 /sources/chapter8.66.sh
 /sources/chapter8.67.sh

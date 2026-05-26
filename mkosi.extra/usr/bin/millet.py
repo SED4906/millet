@@ -25,16 +25,19 @@ def chapter2():
     subprocess.run("bash", shell=True)
     rootfs_node = input("What partition will contain the root filesystem? ")
     run_command(f"mkdir -pv $LFS && mount -v -t ext4 {rootfs_node} $LFS && chown root:root $LFS && chmod 755 $LFS")
+    print(rootfs_node, file=open('/sources/alfs_rootdev','w'))
+    bootfs_node = input("What partition will contain the boot filesystem? ")
+    print(bootfs_node, file=open('/sources/alfs_bootdev','w'))
 
 def chapter3():
     print("Copying sources...")
     run_command("chapter3.sh")
     subprocess.run("find /usr/share/zoneinfo -mindepth 2 -maxdepth 2 -type f -printf '%P\\n' | grep -ve 'right\\/' -e 'posix\\/' | tr '\\n' '\\t'", shell=True)
+    print()
     lfs_timezone = input("What is your timezone? ")
     print(lfs_timezone, file=open('/mnt/lfs/sources/alfs_timezone','w'))
     lfs_hostname = input("What hostname should the system use on the network? ")
     print(lfs_hostname, file=open('/mnt/lfs/sources/alfs_hostname','w'))
-
 
 def do_install():
     print("Pre-build setup...")
@@ -50,12 +53,13 @@ def do_install():
     print("System Configuration...")
     run_command("chapter9.sh")
     print("Kernel Configuration...")
-    print("(Do it yourself.)")
     run_command("chapter10.sh")
+    print("Finalization...")
+    run_command("chapter11.sh")
 
 def main():
     print("Welcome to Millet, an Automated Linux From Scratch installer.")
-    print("This installer is based on LFS version r13.0-126-systemd. (Published 2026-05-20)")
+    print("This installer is based on LFS version r13.0-126-systemd. (Published 2026-05-24)")
     pause()
     version_check()
     pause()
