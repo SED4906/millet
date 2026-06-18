@@ -6,8 +6,8 @@ mount -v -t vfat "${BOOTFS}" /boot
 echo "CONFIG_CMDLINE=\"rw root=${ROOTFS} rootwait\"" > /sources/alfs_config_fragment
 
 cd /sources
-tar -xf linux-7.0.10.tar.xz
-cd linux-7.0.10
+tar -xf linux-7.0.12.tar.xz
+cd linux-7.0.12
 
 make mrproper
 
@@ -19,4 +19,4 @@ make modules_install
 mkdir -pv /boot/EFI/Boot
 cp -v arch/x86/boot/bzImage /boot/EFI/Boot/BOOTX64.EFI
 
-cp -r Documentation -T /usr/share/doc/linux-7.0.10
+cp -r Documentation -T /usr/share/doc/linux-7.0.12

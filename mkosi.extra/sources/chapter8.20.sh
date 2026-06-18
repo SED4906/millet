@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 cd /sources
-tar -xf binutils-2.46.0.tar.xz
-cd binutils-2.46.0
+tar -xf binutils-2.46.1.tar.xz
+cd binutils-2.46.1
 
 mkdir -v build
 cd       build
@@ -25,4 +25,4 @@ rm -rfv /usr/lib/lib{bfd,ctf,ctf-nobfd,gprofng,opcodes,sframe}.a \
         /usr/share/doc/gprofng/
 
 cd /sources
-rm -rf binutils-2.46.0
+rm -rf binutils-2.46.1

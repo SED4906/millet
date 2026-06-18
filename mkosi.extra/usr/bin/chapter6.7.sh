@@ -2,8 +2,8 @@
 set -e
 . ~/.bashrc
 cd $LFS/sources
-tar -xf file-5.47.tar.gz
-cd file-5.47
+tar -xf file-5.48.tar.gz
+cd file-5.48
 
 mkdir build
 pushd build
@@ -22,4 +22,4 @@ make DESTDIR=$LFS install
 rm -v $LFS/usr/lib/libmagic.la
 
 cd $LFS/sources
-rm -rf $LFS/sources/file-5.47
+rm -rf $LFS/sources/file-5.48
